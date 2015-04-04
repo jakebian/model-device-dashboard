@@ -1,3 +1,3 @@
-# tte
+# Device-model-manager
 
-a [Sails](http://sailsjs.org) application
+A dashboard for manufacturers to monitor status of devices built.
