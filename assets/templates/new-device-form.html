@@ -1,0 +1,20 @@
+<form class="tte-form" ng-submit="addDevice()">
+    <md-input-container>
+        <label>The model of your device</label>
+        <md-select placeholder="Model" ng-model="device.model">
+            <md-option ng-repeat="model in models" ng-value="model.id">
+                {{model.name}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <md-input-container flex>
+      <label>Date the device was built</label>
+      <input type="date" ng-model="device.builtDate">
+    </md-input-container>
+
+    <md-input-container flex>
+      <label>Date the device expires</label>
+      <input type="date" ng-model="device.expireDate">
+    </md-input-container>
+    <md-button class="md-raised" type="submit">Add new device</md-button>
+</form>

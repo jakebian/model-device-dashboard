@@ -3,11 +3,16 @@ angular.module('tte.services.model', [])
              '$http',
     function ($http) {
         return {
-            create: create
+            create: create,
+            getAll: getAll
         }
 
         function create(model) {
             return $http.post('/model', model)
+        }
+
+        function getAll() {
+            return $http.get('/model');
         }
 
     }

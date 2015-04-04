@@ -31,9 +31,16 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-
   '/': {
+    view: 'pages/dashboard'
+  },
+
+  '/model/add': {
     view: 'pages/add-model'
+  },
+
+  '/device/add': {
+    view: 'pages/add-device'
   }
 
   /***************************************************************************

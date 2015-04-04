@@ -1,0 +1,14 @@
+<h2>Models <md-button ng-click="showModelDialog($event)" class="md-raised">New Model</md-button></h2>
+
+<md-grid-list
+    md-cols-sm="1" md-cols-md="2" md-cols-gt-md="4"
+    md-row-height-gt-md="1:1" md-row-height="2:2"
+    md-gutter="12px" md-gutter-gt-sm="8px" >
+
+    <md-grid-tile class="tte-model-tile" ng-repeat="model in models" md-rowspan="1" md-colspan="1">
+        <div class="tte-model-content">
+            <b>{{model.name}}</b> <br>
+            lifetime: <b>{{model.lifetime}} days</b>
+        </div>
+    </md-grid-tile>
+</md-grid-list>

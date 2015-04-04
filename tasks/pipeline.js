@@ -31,6 +31,7 @@ var jsFilesToInject = [
   'bower_components/angular-aria/angular-aria.js',
   'bower_components/angular-animate/angular-animate.js',
   'bower_components/angular-material/angular-material.js',
+  'bower_components/moment/moment.js',
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
 

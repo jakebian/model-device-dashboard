@@ -1,0 +1,17 @@
+<h2>Devices <md-button ng-click="showDeviceDialog($event)" class="md-raised">New device</md-button>
+</h2>
+
+
+<md-grid-list
+    md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3"
+    md-row-height-gt-md="2:2" md-row-height="2:2"
+    md-gutter="12px" md-gutter-gt-sm="8px" >
+
+    <md-grid-tile class="tte-device-tile" ng-repeat="device in devices" md-rowspan="1" md-colspan="1">
+        <div class="tte-device-content">
+            model: <b>{{device.model.name}}</b> <br>
+            built at: <b>{{device.builtAt | fromNow}}</b> <br>
+            expires at: <b>{{device.expiresAt | fromNow}}</b>
+        </div>
+    </md-grid-tile>
+</md-grid-list>
