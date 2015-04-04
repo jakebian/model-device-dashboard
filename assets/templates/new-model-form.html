@@ -1,0 +1,12 @@
+<form ng-submit="addDevice()">
+    <div>{{model|json}}</div>
+    <md-input-container>
+        <label>Name of the model</label>
+        <input required type="text" name="name" ng-model="model.name">
+    </md-input-container>
+    <md-input-container>
+        <label>Lifetime of the model (days)</label>
+        <input required type="number" name="lifetime" ng-model="model.lifetime">
+    </md-input-container>
+    <md-button class="md-raised" type="submit">Add new model</md-button>
+</form>
