@@ -1,37 +1,44 @@
-<div class="devices-display">
-
-    <h2>Devices
-    </h2>
-
-    <md-content class="devices-summary">
-        Summary:
-        <b>{{devices.length}}</b> devices in total
-
-        <span class="summary-item" ng-repeat="(status, devices) in statusDeviceMap">
-            <b>{{devices.length}}</b>  {{statusOptions[status].name}}
-        </span>
-
+<md-card class="devices-display">
+    <div class="panel-header" layout="row">
+        <span class="panel-title">Devices</span>
+        <span class="panel-desc" flex>All your devices are displayed here. Click any to update.</span>
         <md-button ng-click="showDeviceDialog($event)" class="md-raised">
             New device
         </md-button>
+    </div>
+    <md-content class="devices-summary">
+        <b>{{devices.length}}</b> devices in total
+
+        <span class="summary-item" ng-style="{backgroundColor: statusOptions[status].color}" ng-repeat="(status, devices) in statusDeviceMap">
+            <b>{{devices.length}}</b>  {{statusOptions[status].name}}
+        </span>
+
     </md-content>
-
-    <md-grid-list
-        class="tte-list"
-        md-cols-sm="1" md-cols-md="2" md-cols-gt-md="5"
-        md-row-height-gt-md="2:2" md-row-height="2:2"
-        md-gutter="12px" md-gutter-gt-sm="8px" >
-
-        <md-grid-tile class="tte-device-tile" ng-repeat="device in devices" md-rowspan="1" md-colspan="1">
-            <div class="tte-device-content">
-                <b>{{device.identifier}}</b>
-                model: <b>{{device.model.name}}</b> <br>
-                built: <b>{{device.builtAt | fromNow}}</b> <br>
-                expires: <b>{{device.expiresAt | fromNow}}</b> <br>
-                status: {{statusOptions[device.status].name}}  <br>
-                <md-button ng-click="startEditingDevice(device)">Edit</md-button>
-            </div>
-        </md-grid-tile>
-    </md-grid-list>
-
-</div>
+    <div class="devices-list">
+        <md-grid-list
+            class="tte-list"
+            md-cols-sm="1" md-cols-md="3" md-cols-gt-md="5"
+            md-row-height-gt-md="2:2" md-row-height="2:2"
+            md-gutter="5px" md-gutter-gt-sm="15px" >
+    <!--  -->
+            <md-grid-tile class="tte-device-tile" ng-repeat="device in devices" md-rowspan="1" md-colspan="1">
+                <div>
+                    <div class="device-meta">
+                        <span class="indicator" ng-style="{backgroundColor: statusOptions[device.status].color}" ></span>
+                        <span class="device-id">{{device.identifier}}</span>
+                    </div>
+                    <div class="tte-device-content" ng-click="startEditingDevice(device)">
+                        <div class="device-header">
+                            <b>{{device.model.name}}</b> <br>
+                            status: {{statusOptions[device.status].name}}
+                        </div>
+                        <div class="device-details">
+                                built: <b>{{device.builtAt | fromNow}}</b> <br>
+                                expires: <b>{{device.expiresAt | fromNow}}</b> <br>
+                        </div>
+                    </div>
+                </div>
+            </md-grid-tile>
+        </md-grid-list>
+    </div>
+</md-card>

@@ -11,19 +11,6 @@
     }
 }
 
-.tte-device-tile {
-    background-color: #aaa;
-    color: #fff;
-    border-radius: 3px;
-    .tte-device-content {
-        padding: 20px;
-    }
-}
-
-.tte-panel {
-    padding: 20px;
-}
-
 md-dialog {
     overflow-y: auto;
 }
@@ -34,6 +21,7 @@ md-dialog {
 
 .devices-display {
     margin: 20px;
+    margin-top: 0;
 }
 
 .summary-item {
@@ -42,13 +30,76 @@ md-dialog {
     margin: 5px;
     border-radius: 3px;
     display: inline-block;
-    color: #888;
+    color: #FFFFFF;
 
 }
 
 .devices-summary {
     border: 1px solid #eee;
-    margin: 20px 0;
     padding: 20px;
-    border-radius: 3px;
+}
+
+.panel-header {
+    padding: 20px;
+    padding-bottom: 10px;
+    .panel-title {
+        font-size: 1.5em;
+    }
+    .panel-desc {
+        opacity: 0.5;
+        padding: 8px;
+        font-style: 0.5em;
+    }
+}
+.dash-header {
+    padding: 20px;
+    padding-bottom: 10px;
+    color: #aaa;
+    h1 {
+        font-weight: lighter;
+    }
+}
+.devices-list {
+    background-color: #222;
+    padding: 80px 40px;
+
+    .tte-device-tile {
+
+
+        padding:0;
+        .device-id {
+            color: #fff;
+            max-width: 80%;
+            display: inline-block;
+            font-size: 1em;
+            overflow: hidden;
+            padding-left: 30px;
+        }
+        .device-meta {
+            padding-bottom: 15px;
+            position: relative;
+            .indicator {
+                position: absolute;
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                margin: 8px;
+                border-radius: 10px;
+            }
+        }
+        .tte-device-content {
+            color: #aaa;
+            padding:0;
+            background-color: #fff;
+            border-radius: 3px;
+            padding: 20px;
+        }
+
+        .device-details {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            border-radius: 3px;
+            padding: 10px;
+        }
+    }
 }
