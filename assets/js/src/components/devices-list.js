@@ -17,19 +17,37 @@ angular.module('tte.components.devices-list', [
             scope.showDeviceDialog = showDeviceDialog;
             scope.statusOptions = statusOptions;
             scope.startEditingDevice = startEditingDevice;
+            scope.statusDeviceMap = {};
             updateDevices();
+
             function updateDevices() {
                 Device.getAll().then(setDevices);
             }
+
+            function updateStatusDeviceMap() {
+                if (!scope.devices) { return; }
+                console.log('devices', scope.devices);
+                scope.devices.forEach(addToStatusDeviceMap);
+
+                function addToStatusDeviceMap(device) {
+                    scope.statusDeviceMap[device.status] =
+                        scope.statusDeviceMap[device.status] || [];
+                    scope.statusDeviceMap[device.status].push(device);
+                }
+            }
+
             function setDevices(response) {
                 scope.devices = response.data;
+                updateStatusDeviceMap();
             }
+
             function showDeviceDialog(ev) {
                 $mdDialog.show({
                   template: '<md-dialog><new-device-form></new-device-form></md-dialog>',
                   targetEvent: ev
                 }).then(updateDevices);
             }
+
             function startEditingDevice(device) {
                 var childScope = scope.$new();
                 childScope.device = device;
@@ -37,7 +55,7 @@ angular.module('tte.components.devices-list', [
                 $mdDialog.show({
                     template: '<md-dialog><update-device-form device="device"></update-device-form></md-dialog>',
                     scope: childScope
-                });
+                }).then(updateDevices);
             }
         }
 

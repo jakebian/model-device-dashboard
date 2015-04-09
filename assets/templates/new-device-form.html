@@ -1,5 +1,11 @@
 <div class="tte-form">
     <md-input-container>
+        <label>ID of the device</label>
+        <input required type="text" required ng-model="device.identifier">
+    </md-input-container>
+
+
+    <md-input-container>
         <md-select placeholder="choose a model" ng-model="device.model">
             <md-option ng-repeat="model in models" ng-value="model.id">
                 {{model.name}}

@@ -1,10 +1,20 @@
 <div class="devices-display">
 
     <h2>Devices
+    </h2>
+
+    <md-content class="devices-summary">
+        Summary:
+        <b>{{devices.length}}</b> devices in total
+
+        <span class="summary-item" ng-repeat="(status, devices) in statusDeviceMap">
+            <b>{{devices.length}}</b>  {{statusOptions[status].name}}
+        </span>
+
         <md-button ng-click="showDeviceDialog($event)" class="md-raised">
             New device
         </md-button>
-    </h2>
+    </md-content>
 
     <md-grid-list
         class="tte-list"
@@ -14,6 +24,7 @@
 
         <md-grid-tile class="tte-device-tile" ng-repeat="device in devices" md-rowspan="1" md-colspan="1">
             <div class="tte-device-content">
+                <b>{{device.identifier}}</b>
                 model: <b>{{device.model.name}}</b> <br>
                 built: <b>{{device.builtAt | fromNow}}</b> <br>
                 expires: <b>{{device.expiresAt | fromNow}}</b> <br>

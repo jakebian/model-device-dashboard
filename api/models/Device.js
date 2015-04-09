@@ -16,6 +16,10 @@ module.exports = {
         status: {
             type: 'string',
             defaultsTo: 'NEW'
+        },
+        identifier: {
+            type: 'string',
+            required: true
         }
     }
 
