@@ -26,9 +26,8 @@ angular.module('tte.components.devices-list', [
 
             function updateStatusDeviceMap() {
                 if (!scope.devices) { return; }
-                console.log('devices', scope.devices);
+                scope.statusDeviceMap = {};
                 scope.devices.forEach(addToStatusDeviceMap);
-
                 function addToStatusDeviceMap(device) {
                     scope.statusDeviceMap[device.status] =
                         scope.statusDeviceMap[device.status] || [];
