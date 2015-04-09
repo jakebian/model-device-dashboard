@@ -98,6 +98,7 @@
     <script src="/js/src/app.js"></script>
     <script src="/js/src/components/components.js"></script>
     <script src="/js/src/components/devices-list.js"></script>
+    <script src="/js/src/components/main-nav.js"></script>
     <script src="/js/src/components/models-list.js"></script>
     <script src="/js/src/components/new-device-form.js"></script>
     <script src="/js/src/components/new-model-form.js"></script>
@@ -108,5 +109,12 @@
     <script src="/js/src/services/device.js"></script>
     <script src="/js/src/services/model.js"></script>
     <!--SCRIPTS END-->
+
+   
+    <script>
+        angular.module('tte.constants')
+            .constant('currentUser', <%- JSON.stringify(user || false) %>);
+    </script>
+
   </body>
 </html>

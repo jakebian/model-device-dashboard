@@ -4,4 +4,6 @@ angular.module('tte.components', [
     'tte.components.devices-list',
     'tte.components.models-list',
     'tte.components.update-device-form',
-    'tte.constants'])
+    'tte.components.main-nav',
+    'tte.constants'
+    ])

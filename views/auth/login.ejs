@@ -5,8 +5,9 @@
 <% } %>
 
 <h1>Login</h1>
+<md-button ng-href="register">Request access</md-button>
 
-<form role="form" action="/auth/local/register" method="post">
+<form role="form" action="/auth/local" method="post">
 
     <md-input-container>
         <label>Your Username or Email</label>
@@ -18,6 +19,5 @@
         <input type="password" name="password" placeholder="Password">
     </md-input-container>
 
-    <md-button class="md-raised" type="submit">Sign up</md-button>
-
+    <md-button class="md-raised" type="submit">Log in</md-button>
 </form>
