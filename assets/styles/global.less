@@ -98,6 +98,7 @@ md-dialog {
             margin-top: 20px;
             border-radius: 3px;
             padding: 10px;
+            font-size: 0.8em;
         }
     }
 }
@@ -107,10 +108,11 @@ html, body, .dashboard {
 }
 
 .dashboard {
-    padding: 40px;
     padding-top: 0;
     .dash-content {
         height: 100%;
+        max-width: 1100px;
+        margin: auto;
     }
 }
 
@@ -122,4 +124,23 @@ main-nav {
             color: #aaa
         }
     }
+}
+
+.auth-page {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 50px;
+
+    h1 {
+        font-weight: 100;
+        font-size: 4em;
+        opacity: 0.8;
+    }
+}
+
+.dash-data-widget {
+    md-tabs{
+        height: 800px;
+    }
+    margin: 20px;
 }

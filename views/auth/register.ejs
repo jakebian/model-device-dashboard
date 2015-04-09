@@ -4,26 +4,28 @@
   <% }) %>
 <% } %>
 
-<h1>Request Access</h1>
-<md-button ng-href="login">or login</md-button>
+<div class="auth-page">
+    <h1>Request Access</h1>
+    <md-button ng-href="login">or login</md-button>
 
-<form role="form" action="/auth/local/register" method="post">
+    <form role="form" action="/auth/local/register" method="post">
 
-    <md-input-container>
-        <label>Choose a username</label>
-        <input type="text" name="username" required>
-    </md-input-container>
+        <md-input-container>
+            <label>Choose a username</label>
+            <input type="text" name="username" required>
+        </md-input-container>
 
-    <md-input-container>
-        <label>Your company email</label>
-        <input type="text" name="email" required>
-    </md-input-container>
+        <md-input-container>
+            <label>Your company email</label>
+            <input type="text" name="email" required>
+        </md-input-container>
 
-    <md-input-container>
-        <label>Choose a password</label>
-        <input type="password" name="password" required>
-    </md-input-container>
+        <md-input-container>
+            <label>Choose a password</label>
+            <input type="password" name="password" required>
+        </md-input-container>
 
-    <md-button class="md-raised">Sign up</md-button>
+        <md-button class="md-raised">Sign up</md-button>
 
-</form>
+    </form>
+</div>

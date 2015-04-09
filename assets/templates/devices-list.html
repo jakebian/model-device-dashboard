@@ -1,44 +1,63 @@
-<md-card class="devices-display">
-    <div class="panel-header" layout="row">
-        <span class="panel-title">Devices</span>
-        <span class="panel-desc" flex>All your devices are displayed here. Click any to update.</span>
-        <md-button ng-click="showDeviceDialog($event)" class="md-raised">
-            New device
-        </md-button>
-    </div>
-    <md-content class="devices-summary">
-        <b>{{devices.length}}</b> devices in total
+<div class="panel-header" layout="row">
+    <span class="panel-title">Devices</span>
+    <span class="panel-desc" flex>All your devices are displayed here. Click any to update.</span>
+    <md-button ng-click="showDeviceDialog($event)" class="md-raised">
+        New device
+    </md-button>
+</div>
 
-        <span class="summary-item" ng-style="{backgroundColor: statusOptions[status].color}" ng-repeat="(status, devices) in statusDeviceMap">
-            <b>{{devices.length}}</b>  {{statusOptions[status].name}}
-        </span>
+<md-tabs>
+    <md-tab label="devices">
+        <md-content class="devices-summary">
+            <b>{{devices.length}}</b> devices in total
 
-    </md-content>
-    <div class="devices-list">
-        <md-grid-list
-            class="tte-list"
-            md-cols-sm="1" md-cols-md="3" md-cols-gt-md="5"
-            md-row-height-gt-md="3:4" md-row-height="1:1"
-            md-gutter="5px" md-gutter-gt-sm="5px" >
-    <!--  -->
-            <md-grid-tile class="tte-device-tile" ng-repeat="device in devices" md-rowspan="1" md-colspan="1">
-                <div>
-                    <div class="device-meta">
-                        <span class="indicator" ng-style="{backgroundColor: statusOptions[device.status].color}" ></span>
-                        <span class="device-id">{{device.identifier}}</span>
-                    </div>
-                    <div class="tte-device-content" ng-click="startEditingDevice(device)">
-                        <div class="device-header">
-                            <b>{{device.model.name}}</b> <br>
-                            {{statusOptions[device.status].name}}
+            <span class="summary-item" ng-style="{backgroundColor: statusOptions[status].color}" ng-repeat="(status, devices) in statusDeviceMap">
+                <b>{{devices.length}}</b>  {{statusOptions[status].name}}
+            </span>
+
+        </md-content>
+        <div class="devices-list">
+            <md-grid-list
+                class="tte-list"
+                md-cols-sm="1" md-cols-md="3" md-cols-gt-md="5"
+                md-row-height-gt-md="2:3" md-row-height="1:1"
+                md-gutter="5px" md-gutter-gt-sm="5px" >
+        <!--  -->
+                <md-grid-tile class="tte-device-tile" ng-repeat="device in devices" md-rowspan="1" md-colspan="1">
+                    <div>
+                        <div class="device-meta">
+                            <span class="indicator" ng-style="{backgroundColor: statusOptions[device.status].color}" ></span>
+                            <span class="device-id">{{device.identifier}}</span>
                         </div>
-                        <div class="device-details">
-                                built: <b>{{device.builtAt | fromNow}}</b> <br>
-                                expires: <b>{{device.expiresAt | fromNow}}</b> <br>
+                        <div class="tte-device-content" ng-click="startEditingDevice(device)">
+                            <div class="device-header">
+                                <b>{{device.model.name}}</b> <br>
+                                {{statusOptions[device.status].name}}
+                            </div>
+                            <div class="device-details">
+                                    built: <b>{{device.builtAt | fromNow}}</b> <br>
+                                    expires: <b>{{device.expiresAt | fromNow}}</b> <br>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </md-grid-tile>
-        </md-grid-list>
-    </div>
-</md-card>
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+
+    </md-tab>
+    <md-tab label="device stats">
+
+        <md-content class="devices-summary">
+            <b>{{devices.length}}</b> devices in total
+
+            <div class="summary-item" ng-style="{backgroundColor: statusOptions[status].color}" ng-repeat="(status, devices) in statusDeviceMap">
+                <b>{{devices.length}}</b>  {{statusOptions[status].name}}
+            </div>
+            <h1>
+                Your data will show up here once more data is collected.
+            </h1>
+        </md-content>
+    </md-tab>
+</md-tabs>
+
+    
