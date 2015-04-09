@@ -18,8 +18,8 @@
         <md-grid-list
             class="tte-list"
             md-cols-sm="1" md-cols-md="3" md-cols-gt-md="5"
-            md-row-height-gt-md="2:2" md-row-height="2:2"
-            md-gutter="5px" md-gutter-gt-sm="15px" >
+            md-row-height-gt-md="3:4" md-row-height="1:1"
+            md-gutter="5px" md-gutter-gt-sm="5px" >
     <!--  -->
             <md-grid-tile class="tte-device-tile" ng-repeat="device in devices" md-rowspan="1" md-colspan="1">
                 <div>
@@ -30,7 +30,7 @@
                     <div class="tte-device-content" ng-click="startEditingDevice(device)">
                         <div class="device-header">
                             <b>{{device.model.name}}</b> <br>
-                            status: {{statusOptions[device.status].name}}
+                            {{statusOptions[device.status].name}}
                         </div>
                         <div class="device-details">
                                 built: <b>{{device.builtAt | fromNow}}</b> <br>
