@@ -1,20 +1,36 @@
-<form class="tte-form" ng-submit="addDevice()">
+<div class="tte-form">
     <md-input-container>
-        <label>The model of your device</label>
-        <md-select placeholder="Model" ng-model="device.model">
+        <md-select placeholder="choose a model" ng-model="device.model">
             <md-option ng-repeat="model in models" ng-value="model.id">
                 {{model.name}}
             </md-option>
         </md-select>
     </md-input-container>
+
+
     <md-input-container flex>
       <label>Date the device was built</label>
-      <input type="date" ng-model="device.builtDate">
+      <input type="date" required ng-model="device.builtDate">
     </md-input-container>
+
 
     <md-input-container flex>
       <label>Date the device expires</label>
-      <input type="date" ng-model="device.expireDate">
+      <input type="date" required ng-model="device.expireDate">
     </md-input-container>
-    <md-button class="md-raised" type="submit">Add new device</md-button>
-</form>
+
+
+    <md-input-container>
+
+        <md-select ng-model="device.status">
+            <md-option ng-repeat="(id, option) in statusOptions" ng-value="id">
+                status: {{option.name}}
+            </md-option>
+        </md-select>
+
+    </md-input-container>
+
+    <md-button class="md-raised" ng-click="addDevice()">Add new device</md-button>
+    <md-button type="submit" ng-click="closeModal()">Cancel</md-button>
+
+</div>

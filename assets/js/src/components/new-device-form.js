@@ -1,10 +1,12 @@
 angular.module('tte.components.new-device-form', [
         'tte.services.device',
-        'tte.services.model']
+        'tte.services.model',
+        'tte.constants'
+    ]
 )
 .directive('newDeviceForm', [
-             'Device', 'Model', '$mdDialog',
-    function (Device ,  Model ,  $mdDialog) {
+             'Device', 'Model', '$mdDialog', 'statusOptions',
+    function (Device ,  Model ,  $mdDialog ,  statusOptions) {
 
         return {
             scope: {},
@@ -13,13 +15,24 @@ angular.module('tte.components.new-device-form', [
         }
 
         function link(scope) {
-            scope.device = {};
+
+            scope.device = {
+                model: 5,
+                status: 'new'
+            };
+
             scope.addDevice = addDevice;
+            scope.statusOptions = statusOptions;
+            scope.closeModal = closeModal;
 
             Model.getAll().then(setModels);
 
+            function closeModal() {
+                $mdDialog.hide();
+            }
             function setModels(response) {
                 scope.models = response.data;
+                scope.device.model = scope.models[0].id;
             }
 
             function addDevice() {

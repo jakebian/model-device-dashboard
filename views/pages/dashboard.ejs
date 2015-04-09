@@ -1,4 +1,12 @@
-<div layout="row">
-    <models-list flex="30" class="tte-panel"></models-list>
-    <devices-list flex="70" class="tte-panel"></devices-list>
+<div ng-controller="dashboardCtrl">
+    <md-button ng-click="toggleRight()"class="md-primary">
+        Manage models
+    </md-button>
+
+    <devices-list class="tte-panel"></devices-list>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+        <models-list class="tte-panel"></models-list>
+    </md-sidenav>
+
 </div>

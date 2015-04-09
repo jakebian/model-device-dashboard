@@ -12,6 +12,10 @@ module.exports = {
         expiresAt: 'float',
         model: {
             model: 'model',
+        },
+        status: {
+            type: 'string',
+            defaultsTo: 'NEW'
         }
     }
 

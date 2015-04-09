@@ -12,7 +12,7 @@ angular.module('tte.components.new-model-form', ['tte.services.model'])
         function link(scope) {
             scope.model = {};
             scope.addModel = addModel;
-
+            scope.hideModal = hideModal;
             function addModel() {
                 Model.create(scope.model)
                     .then(showSuccessMessage)
@@ -20,12 +20,14 @@ angular.module('tte.components.new-model-form', ['tte.services.model'])
             }
 
             function showSuccessMessage(response) {
-                $mdDialog.hide();
-                console.log('success', response);
+                hideModal();
             }
 
             function showFailureMessage(response) {
-                console.log('failure', response);
+            }
+
+            function hideModal() {
+                $mdDialog.hide();
             }
 
         }

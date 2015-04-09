@@ -1,9 +1,11 @@
 angular.module('tte.components.devices-list', [
-        'tte.services.device']
+        'tte.services.device',
+         'tte.constants'
+        ]
 )
 .directive('devicesList', [
-             'Device', '$mdDialog',
-    function (Device ,  $mdDialog) {
+             'Device', '$mdDialog', 'statusOptions',
+    function (Device ,  $mdDialog ,  statusOptions) {
 
         return {
             scope: {},
@@ -13,6 +15,8 @@ angular.module('tte.components.devices-list', [
 
         function link(scope) {
             scope.showDeviceDialog = showDeviceDialog;
+            scope.statusOptions = statusOptions;
+            scope.startEditingDevice = startEditingDevice;
             updateDevices();
             function updateDevices() {
                 Device.getAll().then(setDevices);
@@ -25,6 +29,15 @@ angular.module('tte.components.devices-list', [
                   template: '<md-dialog><new-device-form></new-device-form></md-dialog>',
                   targetEvent: ev
                 }).then(updateDevices);
+            }
+            function startEditingDevice(device) {
+                var childScope = scope.$new();
+                childScope.device = device;
+
+                $mdDialog.show({
+                    template: '<md-dialog><update-device-form device="device"></update-device-form></md-dialog>',
+                    scope: childScope
+                });
             }
         }
 

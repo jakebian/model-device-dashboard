@@ -1,4 +1,4 @@
-<form class="tte-form" ng-submit="addModel()">
+<div class="tte-form">
     <md-input-container>
         <label>Name of the model</label>
         <input required type="text" name="name" ng-model="model.name">
@@ -7,5 +7,6 @@
         <label>Lifetime of the model (days)</label>
         <input required type="number" name="lifetime" ng-model="model.lifetime">
     </md-input-container>
-    <md-button class="md-raised" type="submit">Add new model</md-button>
-</form>
+    <md-button ng-click="addModel()" class="md-raised" type="submit">Add new model</md-button>
+    <md-button ng-click="hideModal()" type="submit">Cancel</md-button>
+</div>
