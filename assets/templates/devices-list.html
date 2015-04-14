@@ -45,17 +45,17 @@
         </div>
 
     </md-tab>
-    <md-tab label="device stats">
+    <md-tab label="device stats" >
 
         <md-content class="devices-summary">
-            <b>{{devices.length}}</b> devices in total
+            <h1>{{devices.length}} devices in total</h1>
 
             <div class="summary-item" ng-style="{backgroundColor: statusOptions[status].color}" ng-repeat="(status, devices) in statusDeviceMap">
                 <b>{{devices.length}}</b>  {{statusOptions[status].name}}
             </div>
-            <h1>
+            <p>
                 Your data will show up here once more data is collected.
-            </h1>
+            </p>
         </md-content>
     </md-tab>
 </md-tabs>
