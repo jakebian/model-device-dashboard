@@ -4,6 +4,7 @@ angular.module('tte.services.device', ['tte.constants'])
 .service('Device', [
              '$http',
     function ($http) {
+
         return {
             create: create,
             getAll: getAll,

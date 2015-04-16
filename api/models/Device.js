@@ -20,7 +20,8 @@ module.exports = {
         identifier: {
             type: 'string',
             required: true
-        }
+        },
+        nfcID: 'string'
     }
 
 };
