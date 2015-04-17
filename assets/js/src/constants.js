@@ -1,6 +1,13 @@
 angular.module('tte.constants', [])
+
 .constant('statusOptions',
     {
+        'new': {
+            id: 'new',
+            name: 'newly created',
+            color: 'grey'
+        },
+
         wip: {
             id: 'wip',
             name: 'WIP',
@@ -23,12 +30,6 @@ angular.module('tte.constants', [])
             id: 'arrived',
             name: 'Hospital Inventory',
             color: '#EF6C00'
-        },
-
-        storage: {
-            id: 'storage',
-            name: 'On-site Storage'.
-            color: '#369'
         },
 
         deployed: {
