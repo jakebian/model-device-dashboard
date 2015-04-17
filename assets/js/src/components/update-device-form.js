@@ -30,11 +30,17 @@ angular.module('tte.components.update-device-form', [
             }
 
             function updateDevice() {
-                Device.update(scope.device).then(closeModal);
+                Device.update(formatDevice(scope.device)).then(closeModal);
             }
 
             function deleteDevice() {
                 Device.remove(scope.device).then(closeModal);
+            }
+
+            function formatDevice(device) {
+                device.builtAt = device.builtDate.getTime();
+                device.expiresAt = device.expireDate.getTime();
+                return device;
             }
         }
     }
