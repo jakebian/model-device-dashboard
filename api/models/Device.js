@@ -21,7 +21,11 @@ module.exports = {
             type: 'string',
             required: true
         },
-        nfcID: 'string'
+        nfcID: 'string',
+        updates: {
+            collection: 'status',
+            via: 'device'
+        }
     }
 
 };
