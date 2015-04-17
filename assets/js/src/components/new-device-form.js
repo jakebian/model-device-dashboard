@@ -30,6 +30,7 @@ angular.module('tte.components.new-device-form', [
             function closeModal() {
                 $mdDialog.hide();
             }
+
             function setModels(response) {
                 scope.models = response.data;
                 scope.device.model = scope.models[0].id;

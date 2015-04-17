@@ -4,13 +4,11 @@
     <p> model: {{ device.model.name }} </p>
 
     <md-input-container>
-
         <md-select ng-model="device.status">
             <md-option ng-repeat="(id, option) in statusOptions" ng-value="id">
                 status: {{ option.name }}
             </md-option>
         </md-select>
-
     </md-input-container>
 
     <md-button class="md-raised" ng-click="updateDevice()">Update device</md-button>

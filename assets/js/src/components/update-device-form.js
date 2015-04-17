@@ -1,8 +1,11 @@
-angular.module('tte.components.update-device-form', ['tte.services.device'])
+angular.module('tte.components.update-device-form', [
+    'tte.services.device',
+    'tte.services.model',
+])
 
 .directive('updateDeviceForm', [
-             'Device', '$mdDialog', 'statusOptions',
-    function (Device ,  $mdDialog ,  statusOptions) {
+             'Device', '$mdDialog', 'statusOptions', 'Model',
+    function (Device ,  $mdDialog ,  statusOptions ,  Model) {
         return {
             scope: {
                 device: '='
@@ -16,6 +19,11 @@ angular.module('tte.components.update-device-form', ['tte.services.device'])
             scope.closeModal = closeModal;
             scope.updateDevice = updateDevice;
             scope.deleteDevice = deleteDevice;
+            Model.getAll().then(setModels);
+
+            function setModels(response) {
+                scope.models = response.data;
+            }
 
             function closeModal() {
                 $mdDialog.hide();
