@@ -15,12 +15,16 @@ angular.module('tte.components.update-device-form', [
         }
 
         function link(scope) {
+            scope.device = formatDeviceForEditing(scope.device);
             scope.statusOptions = statusOptions;
             scope.closeModal = closeModal;
             scope.updateDevice = updateDevice;
             scope.deleteDevice = deleteDevice;
             Model.getAll().then(setModels);
 
+            function setUpdates(response) {
+                scope.updates = response.updates;
+            }
             function setModels(response) {
                 scope.models = response.data;
             }
@@ -38,9 +42,16 @@ angular.module('tte.components.update-device-form', [
             }
 
             function formatDevice(device) {
-                device.builtAt = device.builtDate.getTime();
-                device.expiresAt = device.expireDate.getTime();
+                device.builtAt = device.builtDate ? device.builtDate.getTime() : 0;
+                device.expiresAt = device.expireDate? device.expireDate.getTime() : 0;
                 return device;
+            }
+
+            function formatDeviceForEditing(device) {
+                var formattedDevice = angular.copy(device);
+                formattedDevice.builtDate = new Date(device.builtAt);
+                formattedDevice.expireDate = new Date(device.expiresAt);
+                return formattedDevice;
             }
         }
     }
