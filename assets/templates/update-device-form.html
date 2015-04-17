@@ -3,6 +3,17 @@
     <h3>Updating Device {{ device.id }}</h3>
     <p> model: {{ device.model.name }} </p>
 
+    <md-input-container flex>
+      <label>Date the device was built</label>
+      <input type="date" required ng-model="device.builtDate">
+    </md-input-container>
+
+
+    <md-input-container flex>
+      <label>Date the device expires</label>
+      <input type="date" required ng-model="device.expireDate">
+    </md-input-container>
+
     <md-input-container>
         <md-select ng-model="device.status">
             <md-option ng-repeat="(id, option) in statusOptions" ng-value="id">
